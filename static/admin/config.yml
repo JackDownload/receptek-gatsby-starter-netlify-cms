@@ -33,6 +33,38 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
 
+  - name: 'receptek'
+    label: 'Receptek'
+    folder: 'src/pages/receptek'
+    create: true
+    fields:
+      - { label: 'Cím', name: 'title', widget: 'string' }
+      - { label: 'Fő Kép', name: 'mainImage', widget: 'image' }
+      - { label: 'Galéria', name: 'gallery', widget: 'list', fields: [
+        { label: 'Kép', name: 'image', widget: 'image' }
+      ]
+      }
+      - { label: 'Kategória', name: 'category', widget: 'string' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Hozzávalók', name: 'ingredients', widget: 'list', fields: [
+        { label: 'Név', name: 'name', widget: 'string' },
+        { label: 'Mennyiség', name: 'quantity', widget: 'string' },
+        { label: 'Mennyiségi Egység', name: 'unit', widget: 'string' },
+        { label: 'Típus', name: 'type', widget: 'string' }
+      ]
+      }
+      - { label: 'Globális Hozzávaló', name: 'globalIngredient', widget: 'relation', collection: 'globalIngredients', searchFields: ['name'], valueField: 'name' }
+
+  - name: 'globalIngredients'
+    label: 'Globális Hozzávalók'
+    folder: 'src/pages/globalIngredients'
+    create: true
+    fields:
+      - { label: 'Név', name: 'name', widget: 'string' }
+      - { label: 'Mennyiség', name: 'quantity', widget: 'string' }
+      - { label: 'Mennyiségi Egység', name: 'unit', widget: 'string' }
+      - { label: 'Típus', name: 'type', widget: 'string' }
+  
   - name: "pages"
     label: "Pages"
     files:
